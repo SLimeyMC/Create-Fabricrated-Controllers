@@ -3,7 +3,6 @@ import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
 
 plugins {
     java
-    //id("org.gradle.kotlin.kotlin-dsl") version "4.0.16"
     id("architectury-plugin") version "3.+"
     id("dev.architectury.loom") version "1.4.+" apply false
     kotlin("jvm") version "1.9.22" apply false
@@ -48,9 +47,9 @@ allprojects {
     apply(plugin = "maven-publish")
     apply(plugin = "org.jetbrains.kotlin.jvm")
 
-//    base { archivesName = rootProject.property("archives_base_name").toString() }
-//    version = rootProject.property("version").toString()
-//    group = rootProject.property("maven_group").toString()
+    archivesBaseName = rootProject.property("archives_base_name").toString()
+    version = rootProject.property("version").toString()
+    group = rootProject.property("maven_group").toString()
 
     // Formats the mod version to include the loader, Minecraft version, and build number (if present)
     // example: 1.0.0+fabric-1.18.2-100
