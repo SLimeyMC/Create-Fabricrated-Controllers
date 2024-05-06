@@ -1,12 +1,5 @@
-import org.jetbrains.kotlin.gradle.tasks.KotlinCompile
-
-plugins {
-    `maven-publish`
-}
-
 architectury {
-    val enabled_platforms: String by rootProject
-    common(enabled_platforms.split(","))
+    common(rootProject.enabled_platforms.split(","))
 }
 
 repositories {
@@ -23,27 +16,22 @@ repositories {
 dependencies {
     // We depend on fabric loader here to use the fabric @Environment annotations and get the mixin dependencies
     // Do NOT use other classes from fabric loader
-    modImplementation(libs.fabric.loader)
+    modImplementation("net.fabricmc:fabric-loader:${rootProject.fabric_loader_version}")
     // Remove the next line if you don't want to depend on the API
-    modApi(libs.common.architectury)
+    modApi("dev.architectury:architectury:${rootProject.architectury_version}")
 
-    // Using Create Fabric
-    modCompileOnly(libs.fabric.create)
+    // TODO Using Create Fabric
+    // modCompileOnly("com.simibubi.create:create-fabric-${rootProject.minecraft_version}:${rootProject.create_fabric_version}+mc${rootProject.minecraft_version}")
 
     // CC Restitched
-    modCompileOnly(libs.fabric.computercraft)
-}
-
-val compileTestKotlin: KotlinCompile by tasks
-compileTestKotlin.kotlinOptions {
-    jvmTarget = "17"
+    modCompileOnly("maven.modrinth:cc-restitched:${rootProject.cc_restitched_version}")
 }
 
 publishing {
     publications {
-        create<MavenPublication>("maven") {
-            artifactId = rootProject.property("archives_base_name").toString()
-            from(components.getByName("java"))
+        mavenCommon(MavenPublication) {
+            artifactId = rootProject.archives_base_name
+            from components.java
         }
     }
 
