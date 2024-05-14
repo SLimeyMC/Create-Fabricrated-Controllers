@@ -7,6 +7,7 @@ repositories {
     // mavens for Create Fabric and dependencies
     maven { url "https://mvn.devos.one/snapshots/" } // Create Fabric, Porting Lib, Forge Tags, Milk Lib, Registrate Fabric
     maven { url "https://maven.cafeteria.dev/releases" } // Fake Player API
+    maven { url "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // Forge Config API Port
     maven { url "https://maven.jamieswhiteshirt.com/libs-release" } // Reach Entity Attributes
     maven { url "https://jitpack.io/" } // Mixin Extras, Fabric ASM
 }
@@ -18,7 +19,6 @@ dependencies {
     // Remove the next line if you don't want to depend on the API
     modApi("dev.architectury:architectury:${rootProject.architectury_version}")
 
-    // TODO Using Create Fabric
     modCompileOnly("com.simibubi.create:create-fabric-${rootProject.minecraft_version}:${rootProject.create_fabric_version}+mc${rootProject.minecraft_version}")
 
     // CC Restitched

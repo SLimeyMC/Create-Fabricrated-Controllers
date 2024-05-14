@@ -18,7 +18,7 @@ subprojects {
         maven { url "https://maven.shedaniel.me/" } // Cloth Config
         maven { url "https://dvs1.progwml6.com/files/maven/" } // JEI
         maven { url "https://maven.parchmentmc.org" } // Parchment Mapping
-        maven { url "https://cursemaven.com" } // Controllable, Forge Config API Port
+        maven { url "https://cursemaven.com" } // Controllable
         maven { // Flywheel
             url "https://maven.tterrag.com/"
             content {

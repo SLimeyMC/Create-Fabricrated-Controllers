@@ -22,6 +22,7 @@ repositories {
     maven { url "https://maven.terraformersmc.com/" }
     maven { url "https://mvn.devos.one/snapshots/" } // Create Fabric, Porting Lib, Forge Tags, Milk Lib, Registrate Fabric
     maven { url "https://maven.cafeteria.dev/releases" } // Fake Player API
+    maven { url "https://raw.githubusercontent.com/Fuzss/modresources/main/maven/" } // Forge Config API Port
     maven { url "https://maven.jamieswhiteshirt.com/libs-release" } // Reach Entity Attributes
     maven { url "https://jitpack.io/" } // Mixin Extras, Fabric ASM
 }
@@ -36,14 +37,13 @@ dependencies {
     common(project(path: ":common", configuration: "namedElements")) { transitive false }
     shadowCommon(project(path: ":common", configuration: "transformProductionFabric")) { transitive false }
 
-    // TODO Create Fabric
-    modImplementation("com.simibubi.create:create-fabric:${rootProject.minecraft_version}:${rootProject.create_fabric_version}+mc${rootProject.minecraft_version}")
+    modImplementation("com.simibubi.create:create-fabric-${rootProject.minecraft_version}:${rootProject.create_fabric_version}+mc${rootProject.minecraft_version}")
 
     // CC Restitched
     modRuntimeOnly("maven.modrinth:cc-restitched:${rootProject.cc_restitched_version}+${rootProject.minecraft_version}")
 
     // Recipe Viewer
-    modLocalRuntime("dev.emi:emi:${rootProject.emi_version}")
+    modLocalRuntime("dev.emi:emi:${rootProject.emi_version}+${rootProject.minecraft_version}")
 }
 
 processResources {
