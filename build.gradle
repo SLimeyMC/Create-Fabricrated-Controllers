@@ -14,9 +14,11 @@ subprojects {
 
     repositories {
         mavenCentral()
+        maven { url "https://api.modrinth.com/maven" } // CC Restitched, CC Tweaked
         maven { url "https://maven.shedaniel.me/" } // Cloth Config
         maven { url "https://dvs1.progwml6.com/files/maven/" } // JEI
         maven { url "https://maven.parchmentmc.org" } // Parchment Mapping
+        maven { url "https://cursemaven.com" } // Controllable, Forge Config API Port
         maven { // Flywheel
             url "https://maven.tterrag.com/"
             content {

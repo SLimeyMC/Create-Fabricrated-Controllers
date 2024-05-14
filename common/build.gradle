@@ -5,12 +5,10 @@ architectury {
 repositories {
     mavenCentral()
     // mavens for Create Fabric and dependencies
-    maven { url = uri("https://api.modrinth.com/maven") }
-    maven { url = uri("https://mvn.devos.one/snapshots/") } // Create Fabric, Porting Lib, Forge Tags, Milk Lib, Registrate Fabric
-    maven { url = uri("https://cursemaven.com") }
-    maven { url = uri("https://maven.cafeteria.dev/releases") } // Fake Player API
-    maven { url = uri("https://maven.jamieswhiteshirt.com/libs-release") } // Reach Entity Attributes
-    maven { url = uri("https://jitpack.io/") } // Mixin Extras, Fabric ASM
+    maven { url "https://mvn.devos.one/snapshots/" } // Create Fabric, Porting Lib, Forge Tags, Milk Lib, Registrate Fabric
+    maven { url "https://maven.cafeteria.dev/releases" } // Fake Player API
+    maven { url "https://maven.jamieswhiteshirt.com/libs-release" } // Reach Entity Attributes
+    maven { url "https://jitpack.io/" } // Mixin Extras, Fabric ASM
 }
 
 dependencies {
@@ -21,10 +19,10 @@ dependencies {
     modApi("dev.architectury:architectury:${rootProject.architectury_version}")
 
     // TODO Using Create Fabric
-    // modCompileOnly("com.simibubi.create:create-fabric-${rootProject.minecraft_version}:${rootProject.create_fabric_version}+mc${rootProject.minecraft_version}")
+    modCompileOnly("com.simibubi.create:create-fabric-${rootProject.minecraft_version}:${rootProject.create_fabric_version}+mc${rootProject.minecraft_version}")
 
     // CC Restitched
-    modCompileOnly("maven.modrinth:cc-restitched:${rootProject.cc_restitched_version}")
+    modCompileOnly("maven.modrinth:cc-restitched:${rootProject.cc_restitched_version}+${rootProject.minecraft_version}")
 }
 
 publishing {

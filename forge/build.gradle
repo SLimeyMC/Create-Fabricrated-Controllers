@@ -17,9 +17,9 @@ configurations {
 
 repositories {
     // mavens for Forge-exclusives
-    maven { url = uri("https://maven.theillusivec4.top/") } // Curios
+    maven { url = "https://maven.theillusivec4.top/" } // Curios
     maven { // Create Forge and Registrate Forge
-        url = uri("https://maven.tterrag.com/")
+        url = "https://maven.tterrag.com/"
         content {
             includeGroup("com.tterrag.registrate")
             includeGroup("com.simibubi.create")
@@ -37,16 +37,16 @@ dependencies {
     shadowCommon(project(path: ":common", configuration: "transformProductionForge")) { transitive = false }
 
     // Create
-    modImplementation("com.simibubi.create:create-${rootProject.minecraft_version}:${rootProject.create_forge_version}")
+    modImplementation("com.simibubi.create:create-${rootProject.minecraft_version}:${rootProject.create_forge_version}") { transitive = false }
 
     // CC Tweaked
-    modRuntimeOnly("maven.modrinth:cc-tweaked:${rootProject.cc_tweaked_version}")
+    modRuntimeOnly("maven.modrinth:cc-tweaked:${rootProject.minecraft_version}-${rootProject.cc_tweaked_version}")
 
     // Controllable
     modRuntimeOnly("curse.maven:controllable-317269:${rootProject.controllable_version}")
 
     // Recipe viewer
-    modLocalRuntime("mezz.jei:jei-${rootProject.master_version}:${rootProject.jei_version}")
+    modLocalRuntime("mezz.jei:jei-${rootProject.minecraft_version}:${rootProject.jei_version}")
 }
 
 processResources {
